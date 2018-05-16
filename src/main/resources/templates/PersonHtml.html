@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -13,7 +13,7 @@
 
 <body>
 <H3>
-    <script>alert(${list}+"")</script>
+    <span th:text="${list}"></span>
 </H3>
 <button></button>
 <table cellspacing="0" border="0" class="table1">

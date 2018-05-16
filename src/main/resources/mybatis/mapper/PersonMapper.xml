@@ -8,10 +8,10 @@
         <!-- 结果集的主键 -->
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <!-- 普通的列  -column 是数据库中字段， property是实体类中字段-->
-        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
-        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="enable" property="enable" jdbcType="VARCHAR"/>
     </resultMap>
     <!--parameterType(输入类型)、resultType(输出类型)-->
     <select id="loginByAccount" parameterType="String" resultMap="BaseResultMap"

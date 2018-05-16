@@ -1,11 +1,16 @@
 package com.wsh.springbootandcloud.model;
 
+/**
+ * 用户表
+ */
 public class PersonModel {
+//    用户id，用户昵称，手机号，注册时间，是否禁用
     private String id;
-    private String name;
-    private String idCard;
+    private String nickname;
     private String phone;
-    private String address;
+    private String pwd;
+    private long register_time;
+    private int enable;
 
     public String getId() {
         return id;
@@ -15,20 +20,12 @@ public class PersonModel {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPhone() {
@@ -39,22 +36,38 @@ public class PersonModel {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return address;
+    public long getRegister_time() {
+        return register_time;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setRegister_time(long register_time) {
+        this.register_time = register_time;
+    }
+
+    public int getEnable() {
+        return enable;
+    }
+
+    public void setEnable(int enable) {
+        this.enable = enable;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     @Override
     public String toString() {
         return "PersonModel{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", idCard='" + idCard + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", enable='" + enable + '\'' +
                 '}';
     }
 }
