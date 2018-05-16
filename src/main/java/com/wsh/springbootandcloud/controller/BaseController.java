@@ -1,6 +1,10 @@
 package com.wsh.springbootandcloud.controller;
 
+import com.wsh.springbootandcloud.model.ResultEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author:Create by Mr.w
@@ -9,4 +13,5 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class BaseController {
+
 }

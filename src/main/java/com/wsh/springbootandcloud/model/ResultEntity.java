@@ -10,7 +10,7 @@ public class ResultEntity<T> {
     /**
      * 返回的错误码
      */
-    private Integer code;
+    private int code;
 
     /**
      * 错误信息
@@ -22,11 +22,11 @@ public class ResultEntity<T> {
      */
     private T data;
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -44,5 +44,14 @@ public class ResultEntity<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "ResultEntity{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

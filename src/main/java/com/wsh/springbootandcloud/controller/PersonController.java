@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  * }
  */
 @Controller
-public class PersonController {
+public class PersonController extends BaseController {
 
     @Autowired
     PersonMapper personMapper;
@@ -72,7 +72,10 @@ public class PersonController {
 
     @RequestMapping("/user_login")
     @ResponseBody
-    public ResultEntity userLogin(HttpServletRequest httpServletRequest) {
+    public ResultEntity userLogin(HttpServletRequest httpServletRequest, ResultEntity resultEntity) {
+        if (resultEntity.getCode() != 0) {
+            return resultEntity;
+        }
         String phone = httpServletRequest.getParameter("phone");
         String pwd = httpServletRequest.getParameter("pwd");
         if (phone == null || "".equals(phone)) {
