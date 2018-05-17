@@ -5,18 +5,18 @@ package com.wsh.springbootandcloud.model;
  */
 public class PersonModel {
 //    用户id，用户昵称，手机号，注册时间，是否禁用
-    private String id;
+    private int id;
     private String nickname;
     private String phone;
     private String pwd;
     private long register_time;
     private int enable;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -66,11 +66,11 @@ public class ApiBaseAspect {
             Object[] obj = joinPoint.getArgs();
             for (Object argItem : obj) {
                 System.out.println("---->now-->argItem:" + argItem);
-                if (argItem instanceof ResultEntity) {
-                    ResultEntity paramVO = (ResultEntity) argItem;
-                    paramVO.setMsg("缺少time参数");
-                    paramVO.setCode(-1);
-                }
+//                if (argItem instanceof ResultEntity) {
+//                    ResultEntity paramVO = (ResultEntity) argItem;
+//                    paramVO.setMsg("缺少time参数");
+//                    paramVO.setCode(-1);
+//                }
                 System.out.println("---->after-->argItem:" + argItem);
             }
         } else {

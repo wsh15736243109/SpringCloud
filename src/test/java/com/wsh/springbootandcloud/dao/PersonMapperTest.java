@@ -20,7 +20,7 @@ public class PersonMapperTest {
     @Test
     public void queryTestByName(){
         PersonModel u = personMapper.findByPhone("www");
-        System.out.println("测试查询到  ："+u.toString());
+//        System.out.println("测试查询到  ："+u.toString());
 //		Assert.assertEquals(20, u.intValue());
     }
     @Test
