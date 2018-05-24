@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Class-Path: spring-boot-starter-json-2.0.2.RELEASE.jar spring-boot-sta
+ rter-web-2.0.2.RELEASE.jar kotlin-stdlib-1.2.41.jar aspectjweaver-1.8
+ .13.jar log4j-api-2.10.0.jar spring-tx-5.0.6.RELEASE.jar unbescape-1.
+ 1.5.RELEASE.jar HikariCP-2.7.9.jar validation-api-2.0.1.Final.jar spr
+ ing-context-5.0.6.RELEASE.jar jboss-logging-3.3.2.Final.jar annotatio
+ ns-13.0.jar spring-boot-starter-thymeleaf-2.0.2.RELEASE.jar javax.ann
+ otation-api-1.3.2.jar spring-oxm-5.0.6.RELEASE.jar commons-io-2.5.jar
+  spring-boot-starter-2.0.2.RELEASE.jar spring-aspects-5.0.6.RELEASE.j
+ ar spring-core-5.0.6.RELEASE.jar slf4j-api-1.7.25.jar spring-expressi
+ on-5.0.6.RELEASE.jar tomcat-embed-core-8.5.31.jar snakeyaml-1.19.jar 
+ classmate-1.3.4.jar thymeleaf-spring5-3.0.9.RELEASE.jar spring-beans-
+ 5.0.6.RELEASE.jar spring-boot-starter-jdbc-2.0.2.RELEASE.jar spring-b
+ oot-starter-logging-2.0.2.RELEASE.jar spring-web-5.0.6.RELEASE.jar my
+ batis-spring-1.3.2.jar jackson-module-parameter-names-2.9.5.jar logba
+ ck-classic-1.2.3.jar logback-core-1.2.3.jar mybatis-spring-boot-start
+ er-1.3.2.jar spring-boot-starter-aop-2.0.2.RELEASE.jar kotlin-reflect
+ -1.2.41.jar jackson-datatype-jdk8-2.9.5.jar log4j-to-slf4j-2.10.0.jar
+  jackson-core-2.9.5.jar mybatis-3.4.6.jar spring-boot-2.0.2.RELEASE.j
+ ar spring-aop-5.0.6.RELEASE.jar spring-jcl-5.0.6.RELEASE.jar spring-x
+ ml-3.0.1.RELEASE.jar spring-boot-starter-tomcat-2.0.2.RELEASE.jar spr
+ ing-boot-starter-web-services-2.0.2.RELEASE.jar spring-ws-core-3.0.1.
+ RELEASE.jar spring-boot-autoconfigure-2.0.2.RELEASE.jar jackson-datat
+ ype-jsr310-2.9.5.jar mysql-connector-java-5.1.46.jar jul-to-slf4j-1.7
+ .25.jar tomcat-embed-websocket-8.5.31.jar thymeleaf-3.0.9.RELEASE.jar
+  jackson-module-kotlin-2.9.4.1.jar hibernate-validator-6.0.9.Final.ja
+ r spring-jdbc-5.0.6.RELEASE.jar attoparser-2.0.4.RELEASE.jar spring-w
+ ebmvc-5.0.6.RELEASE.jar jackson-databind-2.9.5.jar thymeleaf-extras-j
+ ava8time-3.0.1.RELEASE.jar tomcat-embed-el-8.5.31.jar mybatis-spring-
+ boot-autoconfigure-1.3.2.jar jackson-annotations-2.9.0.jar
+Main-Class: com.wsh.springbootandcloud.SpringbootandcloudApplication
+

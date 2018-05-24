@@ -6,22 +6,22 @@ package com.wsh.springbootandcloud.exception;
  * @Description:
  */
 public class InvalidArgumentException extends Exception {
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
-    private String code;
+    private int code;
 
-    public InvalidArgumentException(String message){
+    public InvalidArgumentException(String message) {
         super(message);
-        this.setCode("-1");
+        this.setCode(-1);
     }
 
-    public InvalidArgumentException(String message, String code){
+    public InvalidArgumentException(int code, String message) {
         super(message);
         this.setCode(code);
     }

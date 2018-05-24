@@ -1,5 +1,6 @@
 package com.wsh.springbootandcloud.controller;
 
+import com.wsh.springbootandcloud.exception.InvalidArgumentException;
 import com.wsh.springbootandcloud.model.ResultEntity;
 import com.wsh.springbootandcloud.util.ResultUtil;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,30 @@ public class BaseController {
         return result;
     }
 
-    public void isNull(Object args) {
-        if (args == null) {
+    /**
+     * 参数非空验证
+     *
+     * @param args
+     * @param type
+     * @throws Exception
+     */
+    public void isParameterNull(Object args, String type) throws Exception {
+        if (args == null || "".equals(args)) {
+            throw new InvalidArgumentException(type);
+        }
+    }
 
+    public void isExitModel(Object object, String type) throws Exception {
+        if (object == null || "".equals(object)) {
+            throw new InvalidArgumentException(type);
+        }
+    }
+
+    public void isEqual(Object arg1, Object arg2, String msg) throws Exception {
+        isParameterNull(arg1, "参数为空");
+        isParameterNull(arg2, "参数为空");
+        if (!arg1.equals(arg2)) {
+            throw new InvalidArgumentException(msg);
         }
     }
 }
