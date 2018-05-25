@@ -88,8 +88,8 @@ public class PersonController extends BaseController {
     public ResultEntity userLogin(HttpServletRequest httpServletRequest) throws Exception {
         String phone = httpServletRequest.getParameter("phone");
         String pwd = httpServletRequest.getParameter("pwd");
-        isParameterNull(phone, "phone");
-        isParameterNull(pwd, "pwd");
+        isParameterNull(phone, "phone parameter is null");
+        isParameterNull(pwd, "pwd parameter is null");
         PersonModel model = personMapper.findByPhone(phone);
         isExitModel(model, "未找到该账户");
         isEqual(pwd, model.getPwd(), "密码错误");

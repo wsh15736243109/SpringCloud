@@ -14,11 +14,13 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 
 /**
  * @Author:Create by Mr.w
  * @Date:2018/5/24 17:41
  * @Description: 采用RSA 加密解密
+ * 公钥（Public Key）用来对数据进行加密； 一个私钥（Private Key）用来对数据进行解密。
  */
 public class RSAUtil {
 
@@ -36,14 +38,12 @@ public class RSAUtil {
     public static byte[] encrypt(PrivateKey privateKey, String message) throws Exception {
         Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, privateKey);
-
         return cipher.doFinal(message.getBytes(UTF8));
     }
 
     public static byte[] decrypt(PublicKey publicKey, byte [] encrypted) throws Exception {
         Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, publicKey);
-
         return cipher.doFinal(encrypted);
     }
 
@@ -77,7 +77,7 @@ public class RSAUtil {
         }
     }
 
-    public void savePublicKey(PublicKey publicKey) throws IOException {
+    public static void savePublicKey(PublicKey publicKey) throws IOException {
         // 得到公钥字符串
         String publicKeyString = base64Encode(publicKey.getEncoded());
         System.out.println("publicKeyString="+publicKeyString);
@@ -87,21 +87,23 @@ public class RSAUtil {
         bw.close();
     }
 
-    public void savePrivateKey(PrivateKey privateKey) throws IOException {
+    public static void savePrivateKey(PrivateKey privateKey) throws IOException {
         // 得到私钥字符串
         String privateKeyString = base64Encode(privateKey.getEncoded());
         System.out.println("privateKeyString="+privateKeyString);
-
         BufferedWriter bw = new BufferedWriter(new FileWriter("privateKey.keystore"));
         bw.write(privateKeyString);
         bw.close();
     }
 
     public static String base64Encode(byte[] data) {
-        return new BASE64Encoder().encode(data);
+        return Base64.getEncoder().encodeToString(data);
+//        return new BASE64Encoder().encode(data);
     }
+
     public static byte[] base64Decode(String data) throws IOException {
-        return new BASE64Decoder().decodeBuffer(data);
+        return Base64.getDecoder().decode(data);
+//        return new BASE64Decoder().decodeBuffer(data);
     }
 
 
