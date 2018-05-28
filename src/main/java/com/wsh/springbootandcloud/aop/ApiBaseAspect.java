@@ -37,53 +37,53 @@ public class ApiBaseAspect {
      * ~ .. 匹配任意数量的参数.
      */
 
-    @Pointcut("execution(public * com.wsh.springbootandcloud.controller.*.*(..))")
-    public void webLog() {
-    }
-
-    @Before("webLog()")
-    public void doBefore(JoinPoint joinPoint) throws InvalidArgumentException {
-        // 接收到请求，记录请求内容
-        logger.info("WebLogAspect.doBefore()");
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-        // 记录下请求内容
-        logger.info("URL : " + request.getRequestURL().toString());
-        logger.info("HTTP_METHOD : " + request.getMethod());
-        logger.info("IP : " + request.getRemoteAddr());
-        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
-        //获取所有参数：
-        Enumeration<String> enu = request.getParameterNames();
-        Map<String, Object> paramsMap = new HashMap<>();
-        while (enu.hasMoreElements()) {
-            String paraName = enu.nextElement();
-            paramsMap.put(paraName, request.getParameter(paraName));
-            System.out.println(paraName + ": " + request.getParameter(paraName));
-        }
-        if (!paramsMap.containsKey("time")) {
-            //获取目标方法的参数信息
-            Object[] obj = joinPoint.getArgs();
-            for (Object argItem : obj) {
-                System.out.println("---->now-->argItem:" + argItem);
-//                if (argItem instanceof ResultEntity) {
-//                    ResultEntity paramVO = (ResultEntity) argItem;
-//                    paramVO.setMsg("缺少time参数");
-//                    paramVO.setCode(-1);
-//                }
-                System.out.println("---->after-->argItem:" + argItem);
-            }
-        } else {
-
-        }
-    }
-
-
-    @AfterReturning(value = "execution(* com.wsh.springbootandcloud.controller..*.*(..))", returning = "keys")
-    public void doAfterReturning(JoinPoint joinPoint, Object keys) {
-
-        // 处理完请求，返回内容
-        logger.info("WebLogAspect.doAfterReturning()" + keys.toString());
-
-    }
+//    @Pointcut("execution(public * com.wsh.springbootandcloud.controller.*.*(..))")
+//    public void webLog() {
+//    }
+//
+//    @Before("webLog()")
+//    public void doBefore(JoinPoint joinPoint) throws InvalidArgumentException {
+//        // 接收到请求，记录请求内容
+////        logger.info("WebLogAspect.doBefore()");
+////        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+////        HttpServletRequest request = attributes.getRequest();
+////        // 记录下请求内容
+////        logger.info("URL : " + request.getRequestURL().toString());
+////        logger.info("HTTP_METHOD : " + request.getMethod());
+////        logger.info("IP : " + request.getRemoteAddr());
+////        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+////        logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+////        //获取所有参数：
+////        Enumeration<String> enu = request.getParameterNames();
+////        Map<String, Object> paramsMap = new HashMap<>();
+////        while (enu.hasMoreElements()) {
+////            String paraName = enu.nextElement();
+////            paramsMap.put(paraName, request.getParameter(paraName));
+////            System.out.println(paraName + ": " + request.getParameter(paraName));
+////        }
+////        if (!paramsMap.containsKey("time")) {
+////            //获取目标方法的参数信息
+////            Object[] obj = joinPoint.getArgs();
+////            for (Object argItem : obj) {
+////                System.out.println("---->now-->argItem:" + argItem);
+//////                if (argItem instanceof ResultEntity) {
+//////                    ResultEntity paramVO = (ResultEntity) argItem;
+//////                    paramVO.setMsg("缺少time参数");
+//////                    paramVO.setCode(-1);
+//////                }
+////                System.out.println("---->after-->argItem:" + argItem);
+////            }
+////        } else {
+////
+////        }
+//    }
+//
+//
+//    @AfterReturning(value = "execution(* com.wsh.springbootandcloud.controller..*.*(..))", returning = "keys")
+//    public void doAfterReturning(JoinPoint joinPoint, Object keys) {
+//
+////        // 处理完请求，返回内容
+////        logger.info("WebLogAspect.doAfterReturning()" + keys.toString());
+//
+//    }
 }

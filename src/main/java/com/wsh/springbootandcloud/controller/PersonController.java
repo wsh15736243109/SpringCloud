@@ -10,6 +10,8 @@ import com.wsh.springbootandcloud.service.PeronService;
 import com.wsh.springbootandcloud.util.CodeType;
 import com.wsh.springbootandcloud.util.ResultUtil;
 import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.apache.catalina.util.ParameterMap;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @Author:Create by Mr.w
@@ -86,8 +89,12 @@ public class PersonController extends BaseController {
     @RequestMapping(value = "/user_login", method = RequestMethod.GET)
     @ResponseBody
     public ResultEntity userLogin(HttpServletRequest httpServletRequest) throws Exception {
+//        Map<String,String[]> map=httpServletRequest.getParameterMap();
+//        String phone = map.get("phone")[0];
         String phone = httpServletRequest.getParameter("phone");
         String pwd = httpServletRequest.getParameter("pwd");
+        String data = httpServletRequest.getParameter("data");
+        isParameterNull(data, "data parameter is null");
         isParameterNull(phone, "phone parameter is null");
         isParameterNull(pwd, "pwd parameter is null");
         PersonModel model = personMapper.findByPhone(phone);
@@ -96,6 +103,23 @@ public class PersonController extends BaseController {
         return success("登录成功", model);
     }
 
+    /**
+     * @api {POST} /register 注册用户
+     * @apiGroup Users
+     * @apiVersion 0.0.1
+     * @apiDescription 用于注册用户
+     * @apiParam {String} account 用户账户名
+     * @apiParam {String} password 密码
+     * @apiParam {String} mobile 手机号
+     * @apiParam {int} vip = 0  是否注册Vip身份 0 普通用户 1 Vip用户
+     * @apiParam {String} [recommend] 邀请码
+     * @apiParamExample {json} 请求样例：
+     *                ?account=sodlinken&password=11223344&mobile=13739554137&vip=0&recommend=
+     * @apiSuccess (200) {String} msg 信息
+     * @apiSuccess (200) {int} code 0 代表无错误 1代表有错误
+     * @apiSuccessExample {json} 返回样例:
+     *                {"code":"0","msg":"注册成功"}
+     */
     @RequestMapping("/user_updatePassword")
     @ResponseBody
     public ResultEntity updatePassword(HttpServletRequest httpServletRequest, ResultEntity resultEntity) {

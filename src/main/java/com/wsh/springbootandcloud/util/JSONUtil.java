@@ -1,6 +1,8 @@
 package com.wsh.springbootandcloud.util;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * @Author:Create by Mr.w
@@ -9,8 +11,9 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
  */
 public class JSONUtil {
 
-    public static JSONPObject getJsonObject(Object object){
-       JSONPObject jsonpObject=new JSONPObject("",object) ;
-       return jsonpObject;
+
+    public static JSONObject getJsonObject(Object object) throws JSONException {
+        JSONObject jsonpObject = new JSONObject(object.toString());
+        return jsonpObject;
     }
 }

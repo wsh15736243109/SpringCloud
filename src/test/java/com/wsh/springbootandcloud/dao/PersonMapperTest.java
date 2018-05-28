@@ -37,13 +37,16 @@ public class PersonMapperTest {
     public void getAllPerson() throws Exception {
 //        List<PersonModel> personModels = personMapper.getAllPerson();
         // generate public and private keys
-        KeyPair keyPair = buildKeyPair();
-        PublicKey publicKey = keyPair.getPublic();
-        PrivateKey privateKey = keyPair.getPrivate();
-//
-        savePrivateKey(privateKey);
-        savePublicKey(publicKey);
+//        KeyPair keyPair = buildKeyPair();
+//        PublicKey publicKey = keyPair.getPublic();
+//        PrivateKey privateKey = keyPair.getPrivate();
+////
+//        savePrivateKey(privateKey);
+//        savePublicKey(publicKey);
         // encrypt the message
+
+        PublicKey publicKey = loadPublicKey(Constant.PUBLIC_KEY);
+        PrivateKey privateKey = loadPrivateKey(Constant.PRIVATE_KEY);
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -63,4 +66,6 @@ public class PersonMapperTest {
         byte[] secret = decrypt(publicKey, base64Decode(base64Encode));
         System.out.println("getAllPerson decrypt>" + new String(secret, UTF8));     // This is a secret message
     }
+
+
 }

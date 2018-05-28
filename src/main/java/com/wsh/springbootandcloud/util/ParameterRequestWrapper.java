@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @Author:Create by Mr.w
  * @Date:2018/5/24 13:57
- * @Description: 根据请求过来的值改变相应的值
+ * @Description:
  */
 public class ParameterRequestWrapper extends HttpServletRequestWrapper {
 
