@@ -93,8 +93,6 @@ public class PersonController extends BaseController {
 //        String phone = map.get("phone")[0];
         String phone = httpServletRequest.getParameter("phone");
         String pwd = httpServletRequest.getParameter("pwd");
-        String data = httpServletRequest.getParameter("data");
-        isParameterNull(data, "data parameter is null");
         isParameterNull(phone, "phone parameter is null");
         isParameterNull(pwd, "pwd parameter is null");
         PersonModel model = personMapper.findByPhone(phone);

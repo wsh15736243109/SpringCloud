@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface PersonMapper {
+public interface DepartmentMapper {
 
     //用户注册
     @Insert("INSERT INTO user_info(nickname,phone,pwd,register_time,enable) values(#{nickname},#{phone},#{pwd},#{register_time},0)")
@@ -22,8 +22,8 @@ public interface PersonMapper {
     @Select("SELECT * FROM user_info WHERE phone = #{phone}")
     PersonModel findByPhone(@Param("phone") String phone);
 
-    @Select("SELECT * FROM wsh_person")
-    List<PersonModel> getAllPerson();
+    @Select("SELECT * FROM department_table")
+    List<DepartmentModel> getAllDepartment();
 
     @Insert("INSERT INTO security_code(code_value,accepter,send_time,code_status,type) VALUES(#{code_value},#{accepter},#{send_time},#{code_status},#{type})")
     int securityCodeAdd(SecurityCodeModel model);
@@ -36,5 +36,4 @@ public interface PersonMapper {
 
     @Update("UPDATE security_code SET code_status= #{code_status} where id = #{id}")
     int updateSecurityCode(SecurityCodeModel securityCodeModel);
-
 }

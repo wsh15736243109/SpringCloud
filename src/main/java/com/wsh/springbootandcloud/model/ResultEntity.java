@@ -10,12 +10,12 @@ public class ResultEntity<T> {
     /**
      * 返回的错误码
      */
-    private int code;
+    private int code=0;
 
     /**
      * 错误信息
      */
-    private String msg;
+    private String msg="操作成功";
 
     /**
      * 返回的具体内容数据类型

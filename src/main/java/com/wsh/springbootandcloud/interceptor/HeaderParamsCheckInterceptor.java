@@ -33,26 +33,26 @@ public class HeaderParamsCheckInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (handler instanceof HandlerMethod) {
-            ParameterRequestWrapper newRequest = new ParameterRequestWrapper(request);
-            if (request.getParameter("data") == null) {
-                throw new InvalidArgumentException(-999, "请传入data参数");
-            }
-            String data = request.getParameter("data").replaceAll(" ", "+");
-            System.out.println("原有参数==" + data);
-            PublicKey publicKey = RSAUtil.loadPublicKey(Constant.PUBLIC_KEY);
-            String dataDecode = new String(RSAUtil.decrypt(publicKey, RSAUtil.base64Decode(data)), UTF8);
-            JSONObject jsonObject = getJsonObject(dataDecode);
-            System.out.println("现有参数==" + jsonObject);
-            if (!jsonObject.has("app_type")) {
-                throw new InvalidArgumentException(-999, "请传入app_type参数");
-            }
-            Iterator<String> mIterator = jsonObject.keys();
-            while (mIterator.hasNext()) {
-                String key = mIterator.next() + "";
-                String value = jsonObject.getString(key);
-                newRequest.addParameter(key, value);
-            }
-            newRequest.addParameter("data","data 改过后");
+//            ParameterRequestWrapper newRequest = new ParameterRequestWrapper(request);
+//            if (request.getParameter("data") == null) {
+//                throw new InvalidArgumentException(-999, "请传入data参数");
+//            }
+//            String data = request.getParameter("data").replaceAll(" ", "+");
+//            System.out.println("原有参数==" + data);
+//            PublicKey publicKey = RSAUtil.loadPublicKey(Constant.PUBLIC_KEY);
+//            String dataDecode = new String(RSAUtil.decrypt(publicKey, RSAUtil.base64Decode(data)), UTF8);
+//            JSONObject jsonObject = getJsonObject(dataDecode);
+//            System.out.println("现有参数==" + jsonObject);
+//            if (!jsonObject.has("app_type")) {
+//                throw new InvalidArgumentException(-999, "请传入app_type参数");
+//            }
+//            Iterator<String> mIterator = jsonObject.keys();
+//            while (mIterator.hasNext()) {
+//                String key = mIterator.next() + "";
+//                String value = jsonObject.getString(key);
+//                newRequest.addParameter(key, value);
+//            }
+//            newRequest.addParameter("data","data 改过后");
 //            String callSource = request.getHeader(HeaderConstants.CALL_SOURCE);
 //            String apiVersion = request.getHeader(HeaderConstants.API_VERSION);
 //            String appVersion = request.getHeader(HeaderConstants.APP_VERSION);
