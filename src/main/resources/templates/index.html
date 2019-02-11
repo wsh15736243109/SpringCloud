@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        // document.write("i love")//直接输出
+        //弹出框
+        /*var message=confirm("are you sure?")
+        if (message == true) {
+            document.write("好的")
+        }else{
+            document.write("取消")
+        }
+        alert("弹出框")
+        */
+        // window.open("http://www.baidu.com","_blank","width=300,height=200,menubar=no,toolbar=no, status=no,scrollbars=yes")
+        /*
+        打开新窗口
+        function fOpen(url) {
+            window.open(url)
+        }
+        */
+        /*//得到input的value
+        function getText() {
+            var btnText = document.getElementById("ip_btn").value
+            alert(btnText)
+        }*/
+        /*//该表控件的值
+        function changeText() {
+            var btnText = document.getElementById("ip_btn")
+            btnText.value="劳资改了你"
+        }*/
+        /*//定义数组
+        function definitionArray() {
+            var array = new Array(10)
+            array[6] = 9
+            document.write(array)
+        }*/
+    </script>
+</head>
+
+<body>
+<h1>index</h1>
+<input onload="alert('加载中')" id="ip_btn" name="button" type="button" onmouseover="alert('我经过了')" onClick="definitionArray()" value="点击我，打开新窗口!"/>
+</body>
+</html>
